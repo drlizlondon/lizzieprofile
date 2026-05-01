@@ -115,109 +115,16 @@ function Homepage() {
         <HeroImageStage />
       </section>
 
-      <section className="work-strip" id="ideas">
-        <div className="section-rule" />
-        <div className="work-heading">
-          <EditableText path="work.title" as="h2" />
-        </div>
-        <div className="work-columns">
-          {content.work.areas.map((area, index) => {
-            const Icon = iconMap[area.icon] ?? Sparkles;
-            return (
-              <article key={`work-${index}`}>
-                <Icon size={30} strokeWidth={1.35} />
-                <EditableText path={`work.areas.${index}.title`} as="h3" multiline />
-                <EditableText path={`work.areas.${index}.text`} as="p" multiline />
-              </article>
-            );
-          })}
+      <section className="site-progress" id="projects" aria-label="Site progress">
+        <div className="site-progress-inner">
+          <p className="site-progress-title">Site currently evolving.</p>
+          <p className="site-progress-copy">
+            Selected work and writing are being curated and added gradually.
+          </p>
+          <p className="site-progress-micro">Full archive coming soon.</p>
+          <span className="site-progress-note">building quietly</span>
         </div>
       </section>
-
-      <section className="projects-section" id="projects">
-        <div className="projects-heading">
-          <div>
-            <EditableText path="projects.title" as="h2" />
-            <EditableText path="projects.note" as="p" />
-          </div>
-          <a href="#contact">
-            <EditableText path="projects.viewAll" /> <ArrowRight size={18} />
-          </a>
-        </div>
-        <div className="project-row">
-          {content.projects.items.map((project, index) => (
-            <ProjectCard key={`project-${index}`} project={project} index={index} />
-          ))}
-        </div>
-      </section>
-
-      <section className="journal-grid" id="journal">
-        <div className="journal-block">
-          <div className="block-heading">
-            <EditableText path="journal.title" as="h2" />
-            <a href="#contact">
-              <EditableText path="journal.viewAll" /> <ArrowRight size={16} />
-            </a>
-          </div>
-          <div className="article-cards">
-            {content.journal.articles.map((_, index) => (
-              <article key={`article-${index}`}>
-                <div className="article-image" />
-                <EditableText path={`journal.articles.${index}`} as="h3" multiline />
-                <EditableText path={`journal.readTimes.${index}`} as="span" />
-              </article>
-            ))}
-          </div>
-        </div>
-        <div className="thinking-pad paper-surface">
-          <EditableText path="thinking.title" as="h2" />
-          {content.thinking.items.map((_, index) => (
-            <EditableText
-              key={`thinking-${index}`}
-              path={`thinking.items.${index}`}
-              as="p"
-              multiline
-            />
-          ))}
-        </div>
-        <aside className="speaking-card" id="speaking">
-          <Mic2 size={86} strokeWidth={1} />
-          <EditableText path="speaking.title" as="h2" />
-          {content.speaking.topics.map((_, index) => (
-            <EditableText key={`topic-${index}`} path={`speaking.topics.${index}`} as="p" />
-          ))}
-          <a href="#contact">
-            <EditableText path="speaking.viewTopics" /> <ArrowRight size={16} />
-          </a>
-        </aside>
-      </section>
-
-      <footer className="footer-section" id="contact">
-        <div className="footer-about">
-          <div className="footer-photo" />
-          <div>
-            <EditableText path="footer.title" as="h2" />
-            <EditableText path="footer.body" as="p" multiline />
-            <a href="#about">
-              <EditableText path="footer.more" /> <ArrowRight size={16} />
-            </a>
-          </div>
-        </div>
-        <div className="connect-card paper-surface">
-          <EditableText path="footer.connectTitle" as="h2" />
-          <EditableText path="footer.connectBody" as="p" multiline />
-          <a className="button primary" href="mailto:hello@example.com">
-            <EditableText path="footer.cta" /> <ArrowRight size={17} />
-          </a>
-        </div>
-        <div className="social-links">
-          {content.footer.social.map((_, index) => (
-            <a key={`social-${index}`} href={index === 2 ? "mailto:hello@example.com" : "#"}>
-              <EditableText path={`footer.social.${index}`} />
-            </a>
-          ))}
-        </div>
-      </footer>
       <EditPanel />
     </main>
   );
